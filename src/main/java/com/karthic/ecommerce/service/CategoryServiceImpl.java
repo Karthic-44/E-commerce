@@ -1,5 +1,7 @@
 package com.karthic.ecommerce.service;
 
+import com.karthic.ecommerce.exception.APIException;
+import com.karthic.ecommerce.exception.ResourceNotFoundException;
 import com.karthic.ecommerce.repositories.CategoryRepository;
 import com.karthic.ecommerce.model.Category;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +22,19 @@ public class CategoryServiceImpl implements CategoryService{
 
     @Override
     public List<Category> getAllCategories() {
-        return categoryRepository.findAll();
+        List<Category> categories = categoryRepository.findAll();
+        if (categories.isEmpty())
+            throw new APIException("No category available");
+        return categories;
     }
 
     @Override
     public void createCategory(Category category) {
+
+        Category savedCategory = categoryRepository.findByCategoryName(category.getCategoryName());
+        if (savedCategory!=null){
+           throw new APIException("Category "+ category.getCategoryName() + " already exists");
+        }
 
         categoryRepository.save(category);
 
@@ -34,7 +44,7 @@ public class CategoryServiceImpl implements CategoryService{
     public String deleteCategory(Long categoryId) {
 
         Category category = categoryRepository.findById(categoryId)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Resource Not Found") );
+                .orElseThrow(() -> new ResourceNotFoundException("Category","categoryId",categoryId) );
 
         categoryRepository.delete(category);
         return categoryId+" CategoryId deleted";
@@ -44,7 +54,7 @@ public class CategoryServiceImpl implements CategoryService{
     public Category updateCategory(Category category, Long categoryId) {
 
         Category savedCategory=categoryRepository.findById(categoryId)
-                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"Resource not found"));
+                .orElseThrow(()-> new ResourceNotFoundException("Category","categoryId",categoryId) );
         category.setCategoryId(categoryId);
 
         savedCategory=categoryRepository.save(category);
