@@ -150,7 +150,7 @@ public class AuthController {
                 .collect(Collectors.toList());
 
         UserInfoResponse response = new UserInfoResponse(userDetails.getId(),
-                userDetails.getUsername(), roles,);
+                userDetails.getUsername(), roles);
 
         return ResponseEntity.ok()
                 .body(response);
