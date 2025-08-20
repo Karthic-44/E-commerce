@@ -19,7 +19,7 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long paymentId;
 
-    @OneToOne(mappedBy = "admin", cascade ={CascadeType.PERSIST,CascadeType.MERGE} )
+    @OneToOne(mappedBy = "payment", cascade ={CascadeType.PERSIST,CascadeType.MERGE} )
     private Order order;
 
     @NotBlank
@@ -31,9 +31,9 @@ public class Payment {
     private String pgResponseMessage;
     private String pgName;
 
-    public Payment(Long paymentId, String pgPaymentId, String pgStatus, String pgResponseMessage, String pgName){
+    public Payment(String paymentMethod, String pgPaymentId, String pgStatus, String pgResponseMessage, String pgName){
 
-        this.paymentId = paymentId;
+        this.paymentMethod = paymentMethod;
         this.pgPaymentId = pgPaymentId;
         this.pgStatus = pgStatus;
         this.pgResponseMessage = pgResponseMessage;

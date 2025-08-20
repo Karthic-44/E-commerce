@@ -2,6 +2,7 @@ package com.karthic.ecommerce.Controller;
 
 import com.karthic.ecommerce.payload.OrderDTO;
 import com.karthic.ecommerce.payload.OrderRequestDTO;
+import com.karthic.ecommerce.service.OrderService;
 import com.karthic.ecommerce.util.AuthUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,7 +32,7 @@ public class OrderController {
                 orderRequestDTO.getPgStatus(),
                 orderRequestDTO.getPgResponseMessage()
         );
-        return  new ResponseEntity<>(order, HttpStatus.CREATED)
+        return  new ResponseEntity<>(order, HttpStatus.CREATED);
 
     }
 

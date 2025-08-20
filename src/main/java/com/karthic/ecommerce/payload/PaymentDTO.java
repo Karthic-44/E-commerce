@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class PaymentDTO {
     private Long paymentID;
-    private Long paymentMethod;
+    private String paymentMethod;
     private String pgPaymentId;
     private String pgStatus;
     private String pgResponseMessage;
