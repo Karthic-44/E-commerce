@@ -1,11 +1,11 @@
 import './App.css'
+import Products from './components/Products'
 
 function App() {
   return (
-   <h1 class="flex items-center justify-center h-screen bg-gray-800
-              text-white text-2xl font-bold">
-    Hello world!
-  </h1>
+    <>
+      <Products />
+    </>
   )
 }
 
