@@ -58,6 +58,14 @@ public class UserDetailsImpl implements UserDetails {
         return authorities;
     }
 
+       public Long getId() {
+        return id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
     @Override
     public String getPassword() {
         return password;
@@ -70,22 +78,22 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return UserDetails.super.isAccountNonExpired(); //true
+        return true; //UserDetails.super.isAccountNonExpired();
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return UserDetails.super.isAccountNonLocked(); //true
+        return true; //UserDetails.super.isAccountNonLocked(); 
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return UserDetails.super.isCredentialsNonExpired(); //true
+        return true; //UserDetails.super.isCredentialsNonExpired(); 
     }
 
     @Override
     public boolean isEnabled() {
-        return UserDetails.super.isEnabled(); //true
+        return true; //UserDetails.super.isEnabled(); 
     }
 
     @Override
