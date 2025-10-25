@@ -28,7 +28,7 @@ const Filter = () => {
 
     useEffect(() => {
         const currentCategory = searchParams.get("category") || "all";
-        const currentSortOrder = searchParams.get("sortby") || "asc";
+        const currentSortOrder = searchParams.get("sortBy") || "asc";
         const currentSearchTerm = searchParams.get("keyword") || "";
 
         setCategory(currentCategory);
@@ -71,8 +71,8 @@ const Filter = () => {
 
       const toggleSortOrder = () => {
         setSortOrder((prevOrder) => {
-            const newOrder = (prevOrder === "asc") ?  "desc" : "asc";
-            params.set("sortby", newOrder);
+            const newOrder = ((prevOrder === "asc") ?  "desc" : "asc");
+            params.set("sortBy", newOrder);
             navigate(`${pathname}?${params}`);
             return newOrder;
         })
