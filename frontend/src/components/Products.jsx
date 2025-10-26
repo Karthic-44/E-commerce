@@ -6,6 +6,7 @@ import { fetchCategories, fetchProducts } from "../store/action";
 import Filter from "./Filter";
 import useProductFilter from "./useProductFilter";
 import Loader from "./Loader";
+import Paginations from "./Paginations";
 
 
 const Products = () => {
@@ -45,6 +46,11 @@ const Products = () => {
 
                          )}
                     </div>
+                    <div className="flex justify-center pt-10">
+                        <Paginations 
+                            numberOfPage={pagination?.totalPages}
+                            totalProducts={pagination?.totalElements} />
+                </div>
                 </div>
             )
 
