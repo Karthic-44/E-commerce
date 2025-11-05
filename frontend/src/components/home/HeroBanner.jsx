@@ -42,7 +42,7 @@ const HeroBanner = () => {
                                             {item.description}
                                         </p>
 
-                                        {/* test */}
+                                      
                                         <Link 
                                             className='mt-6 inline-block bg-black text-white py-2 px-4 rounded-sm hover:bg-gray-800'
                                             to="/products">
