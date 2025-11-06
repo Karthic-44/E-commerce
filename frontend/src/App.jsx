@@ -7,6 +7,7 @@ import About from './components/About'
 import Contact from './components/Contact'
 import React from 'react'
 import {Toaster} from 'react-hot-toast';
+import Cart from './components/cart/Cart'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='/products' element={<Products/>} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/cart' element={<Cart />} />
         </Routes>
       </Router>
       <Toaster position= 'bottom-center' /> 
