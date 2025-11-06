@@ -4,6 +4,7 @@ import ProductViewModal from './ProductViewModal';
 import truncateText from '../../utils/truncateText';
 import { useDispatch} from "react-redux";
 import { addToCart } from '../../store/action';
+import toast from "react-hot-toast";
 
 const ProductCard = ({
       productId,
@@ -23,12 +24,14 @@ const ProductCard = ({
     const dispatch = useDispatch();
 
     const handleProductView = (product) => {
-        setSelectedViewProduct(product);
-        setOpenProductViewModal(true);
+         if (!about) {
+            setSelectedViewProduct(product);
+            setOpenProductViewModal(true);
+        }
     };
 
     const addToCartHandler = (cartItems) => {
-        dispatch(addToCart(cartItems, 1));
+        dispatch(addToCart(cartItems, 1,toast));
     };
 
     return (
