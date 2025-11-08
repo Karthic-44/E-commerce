@@ -7,7 +7,7 @@ import { authReducer } from "./authReducer";
 
 const user = localStorage.getItem("auth")
     ? JSON.parse(localStorage.getItem("auth"))
-    : [];
+    : null;
 
 
 const cartItems = localStorage.getItem("cartItems")

@@ -6,6 +6,7 @@ import InputField from "../shared/InputField";
 import { useDispatch } from "react-redux";
 import { authenticateSignInUser } from "../../store/action";
 import toast from "react-hot-toast";
+import Spinners from "../shared/Spinners";
 
 const LogIn = () => {
     const navigate = useNavigate();
@@ -68,6 +69,7 @@ const LogIn = () => {
                 type="submit">
                 {loader ? (
                     <>
+                    <Spinners /> Loading...
                     </>
                 ) : (
                     <>Login</>

@@ -5,6 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Badge } from '@mui/material';
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import UserMenu from "../UserMenu";
 
 const Navbar = () =>{
     const path = useLocation().pathname;
@@ -76,7 +77,7 @@ const Navbar = () =>{
                 
                 {(user && user.id) ? (
                     <li className="font-medium transition-all duration-150">
-                        <p>Welcome</p>
+                        <UserMenu />
                     </li>
                 ): (
                 <li className="font-medium transition-all duration-150">
