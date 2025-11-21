@@ -207,7 +207,7 @@ export const getUserAddresses = () => async (dispatch, getState) => {
 };
 
 export const selectUserCheckoutAddress = (address) => {
-    localStorage.setItem("CHECKOUT_ADDRESS", JSON.stringify(address));
+   
     
     return {
         type: "SELECT_CHECKOUT_ADDRESS",
