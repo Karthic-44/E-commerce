@@ -161,6 +161,9 @@ export const logOutUser = (navigate) => (dispatch) => {
     navigate("/login");
 };
 
+
+
+
 export const addUpdateUserAddress =
      (sendData, toast, addressId, setOpenAddressModal) => async (dispatch, getState) => {
     
@@ -202,4 +205,14 @@ export const getUserAddresses = () => async (dispatch, getState) => {
          });
     }
 };
+
+export const selectUserCheckoutAddress = (address) => {
+    localStorage.setItem("CHECKOUT_ADDRESS", JSON.stringify(address));
+    
+    return {
+        type: "SELECT_CHECKOUT_ADDRESS",
+        payload: address,
+    }
+};
+
  

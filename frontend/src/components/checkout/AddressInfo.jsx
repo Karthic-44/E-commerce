@@ -5,9 +5,10 @@ import { FaAddressBook } from 'react-icons/fa';
 import AddressInfoModal from './AddressInfoModal';
 import AddAddressForm from './AddAddressForm';
 import { useDispatch, useSelector } from 'react-redux';
-// import AddressList from './AddressList';
+;
 // import { DeleteModal } from './DeleteModal';
 import toast from 'react-hot-toast';
+import AddressList from './AddressList';
 // import { deleteUserAddress } from '../../store/actions';
 
 const AddressInfo = ({ address }) => {
@@ -60,7 +61,27 @@ const AddressInfo = ({ address }) => {
                     <Skeleton />
                 </div>
             ) : (
-            <div><AddAddressForm /></div>
+                
+                <>
+                <div className='space-y-4 pt-6'>
+                    <AddressList 
+                        addresses={address}
+                        setSelectedAddress={setSelectedAddress}
+                        setOpenAddressModal={setOpenAddressModal}
+                        setOpenDeleteModal={setOpenDeleteModal}
+                        />
+                </div>
+
+                {address.length > 0 && (
+                    <div className='mt-4'>
+                        <button 
+                            onClick={addNewAddressHandler}
+                            className='px-4 py-2 bg-blue-600 text-white font-medium rounded-sm hover:bg-blue-700 transition-all'>
+                                Add More
+                        </button>
+                    </div>
+                )}
+                </>
                 
               
             )}
