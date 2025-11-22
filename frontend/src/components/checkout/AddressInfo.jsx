@@ -6,10 +6,10 @@ import AddressInfoModal from './AddressInfoModal';
 import AddAddressForm from './AddAddressForm';
 import { useDispatch, useSelector } from 'react-redux';
 ;
-// import { DeleteModal } from './DeleteModal';
+import { DeleteModal } from './DeleteModal';
 import toast from 'react-hot-toast';
 import AddressList from './AddressList';
-// import { deleteUserAddress } from '../../store/actions';
+import { deleteUserAddress } from '../../store/action';
 
 const AddressInfo = ({ address }) => {
     const [openAddressModal, setOpenAddressModal] = useState(false);
@@ -22,13 +22,13 @@ const AddressInfo = ({ address }) => {
 
     const dispatch = useDispatch();
 
-    // const deleteAddressHandler = () => {
-    //     dispatch(deleteUserAddress(
-    //         toast,
-    //         selectedAddress?.addressId,
-    //         setOpenDeleteModal
-    //     ))
-    // };
+    const deleteAddressHandler = () => {
+        dispatch(deleteUserAddress(
+            toast,
+            selectedAddress?.addressId,
+            setOpenDeleteModal
+        ))
+    };
 
     const noAddressExist = !address || address.length === 0;
     const { isLoading, btnLoader } = useSelector((state) => state.errors);
@@ -97,13 +97,13 @@ const AddressInfo = ({ address }) => {
                     setOpenAddressModal={setOpenAddressModal}/>
         </AddressInfoModal>
 
-        {/* <DeleteModal 
+        <DeleteModal 
             open={openDeleteModal}
             loader={btnLoader}
             setOpen={setOpenDeleteModal}
             title="Delete Address"
             onDeleteHandler={deleteAddressHandler}
-        /> */}
+        />
     </div>
   )
 }
