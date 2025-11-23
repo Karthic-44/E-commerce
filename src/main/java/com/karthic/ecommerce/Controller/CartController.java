@@ -2,12 +2,12 @@ package com.karthic.ecommerce.Controller;
 
 import com.karthic.ecommerce.model.Cart;
 import com.karthic.ecommerce.payload.CartDTO;
+import com.karthic.ecommerce.payload.CartItemDTO;
 import com.karthic.ecommerce.repositories.CartRepository;
 import com.karthic.ecommerce.service.CartService;
 import com.karthic.ecommerce.util.AuthUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +26,13 @@ public class CartController {
 
     @Autowired
     private CartService cartService;
+
+        @PostMapping("/cart/create")
+    public ResponseEntity<String> createOrUpdateCart(@RequestBody List<CartItemDTO> cartItems){
+        String response = cartService.createOrUpdateCartWithItems(cartItems);
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+
 
     @PostMapping("/carts/products/{productId}/quantity/{quantity}")
     public ResponseEntity<CartDTO> addProductToCart(@PathVariable Long productId,
