@@ -279,7 +279,7 @@ public class CartServiceImpl implements CartService{
         double totalPrice = 0.00;
 
         for(CartItemDTO cartItemDTO : cartItems){
-            Long productId = cartItemDTO.getProductDTO().getProductId();
+            Long productId = cartItemDTO.getProductId();
             Integer quantity = cartItemDTO.getQuantity();
 
             Product product = productRepository.findById(productId).
