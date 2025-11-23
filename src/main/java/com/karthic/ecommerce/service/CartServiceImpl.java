@@ -262,6 +262,7 @@ public class CartServiceImpl implements CartService{
         return newCart;
     }
 
+    @Transactional
     @Override
     public String createOrUpdateCartWithItems(List<CartItemDTO> cartItems) {
         
