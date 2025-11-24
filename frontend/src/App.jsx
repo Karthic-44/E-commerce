@@ -12,6 +12,7 @@ import LogIn from './components/auth/Login'
 import PrivateRoute from './components/PrivateRoute'
 import Register from './components/auth/Register'
 import Checkout from './components/checkout/Checkout'
+import AdminLayout from './components/admin/AdminLayout'
 
 function App() {
   return (
@@ -34,6 +35,13 @@ function App() {
             <Route path='/login' element={<LogIn />} />
             <Route path='/register' element={<Register />} />
           </Route>
+
+          
+          <Route path='/' element={< PrivateRoute />}>
+            <Route path='/admin' element={<AdminLayout />} />
+            
+          </Route>
+
         </Routes>
       </Router>
       <Toaster position= 'bottom-center' /> 
