@@ -124,14 +124,14 @@ public CommandLineRunner initData(RoleRepository roleRepository, UserRepository 
                 .orElseGet(() -> roleRepository.save(new Role(AppRole.ROLE_ADMIN)));
 
         // Create users with roles in one go
-        if (!userRepository.existsByUserName("user")) {
-            User user1 = new User("user", "user1@example.com", passwordEncoder.encode("password1"));
+        if (!userRepository.existsByUserName("user1")) {
+            User user1 = new User("user1", "user1@example.com", passwordEncoder.encode("password1"));
             user1.setRoles(Set.of(userRole));
             userRepository.save(user1);
         }
 
-        if (!userRepository.existsByUserName("seller")) {
-            User seller1 = new User("seller", "seller1@example.com", passwordEncoder.encode("password2"));
+        if (!userRepository.existsByUserName("seller1")) {
+            User seller1 = new User("seller1", "seller1@example.com", passwordEncoder.encode("password2"));
             seller1.setRoles(Set.of(sellerRole));
             userRepository.save(seller1);
         }
