@@ -4,7 +4,7 @@ import { FaBoxOpen, FaHome, FaShoppingCart, FaStore, FaThList } from "react-icon
 export const bannerLists = [
     {
     id:1,
-    image: bannerImageOne,
+    image: bannerImageThree,
     title: "Home Comfort",
     subtitle: "Living Room",
     description: "Upgrade your space with cozy and stylish sofas",
@@ -18,7 +18,7 @@ export const bannerLists = [
   },
   {
     id: 3,
-    image:bannerImageThree,
+    image:bannerImageOne,
     title: "Playful Picks",
     subtitle: "Kids' Clothing",
     description: "Bright and fun styles for kids, up to 20% off",
